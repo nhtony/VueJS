@@ -1,0 +1,30 @@
+<!-- Put this in the HTML section in JSFiddle! -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<div id="app1">
+  <h1 ref="heading">{{ title }}</h1>
+  <button v-on:click="show" ref="myButton">Show Paragraph</button>
+  <p v-if="showParagraph">This is not always visible</p>
+</div>
+
+<div id="app2">
+  <h1 ref="heading">{{ title }}</h1>
+  <button @click="onChange">Change title in Vue 1</button>
+  <comp></comp>
+  <comp></comp>
+</div>
+
+<div id="app3">
+
+</div>
+
+<hr>
+<h4>LIFECYCLE</h4>
+<div id="app">
+  <h6>{{title}}</h6>
+  <button @click="title = 'Changed'">Change <Title></Title></button>
+  <button @click="vueDestroy">Destroy</button>
+</div>
+
+<script src="./app.js"></script>
