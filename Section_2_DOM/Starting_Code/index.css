@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.demo{
+    width: 100px;
+    height: 70px;
+    display: block;
+    border: 1px solid black;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
