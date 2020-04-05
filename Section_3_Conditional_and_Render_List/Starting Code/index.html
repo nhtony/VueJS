@@ -1,0 +1,98 @@
+<!-- Put this in the HTML section in JSFiddle! -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+	<h4>CONDITIONALS</h4>
+	<h5>v-if</h5>
+	<p v-if="show">You can see me!</p>
+	<p>Do you also see me?</p>
+	<button @click="show = !show">{{show ? 'No' : 'Yes'}}</button>
+	<hr>
+
+	<h5>v-else-if</h5>
+	<div v-if="type === 'A'">
+		A
+	</div>
+	<div v-else-if="type === 'B'">
+		B
+	</div>
+	<div v-else-if="type === 'C'">
+		C
+	</div>
+	<div v-else>
+		Not A/B/C
+	</div>
+
+	<select v-model="type">
+		<option>A</option>
+		<option>B</option>
+		<option>C</option>
+	</select>
+
+	<hr>
+
+	<h5>template</h5>
+	<template v-if="show">
+		<p>Hello</p>
+		<p>My name is Hao</p>
+	</template>
+	<button @click="show = !show">{{show ? 'Hide' : 'Show'}}</button>
+	<hr>
+
+	<h5>v-show</h5>
+	<p v-if="show">You can see me!</p>
+	<p v-show="show">Do you also see me?</p>
+	<button @click="show = !show">{{show ? 'No' : 'Yes'}}</button>
+	<hr>
+
+	<h4>RENDER LIST</h4>
+	<h5>v-for</h5>
+     <ul>
+		 <li v-for="(ingredient,i) in ingredients">{{ingredient}} - {{i}}</li>
+	 </ul>
+	 <hr>
+	 <h5>render with template</h5>
+	 <template v-for="(ingredient,i) in ingredients">
+		 <p>{{ingredient}}</p>
+		 <p>{{i}}</p>
+	 </template>
+	 <hr>
+	 <h5>Loop through Object</h5>
+	 <ul v-for="person in persons">
+		 <li v-for="(value,key,index) in person">
+			 <p>{{key}} : {{value}} - {{index}}</p>
+		</li>
+	 </ul>
+	 <hr>
+	 <h5>Loop through the list of numbers</h5>
+	 <span v-for="n in 10">{{n}}</span>
+	 <hr>
+	 <h5>Keep track of elements when loop</h5>
+	 <ul>
+		<li v-for="(ingredient,i) in ingredients" :key="i">{{ingredient}} - {{i}}</li>
+		<button @click="ingredients.push('chicken')">Add</button>
+	</ul>
+</div>
+
+<script src="./app.js"></script>
+
+
+<!-- CONDITIONALS 
+	v-if: show or remove element with conditional(true/false)
+	   ex: v-if = "condition"
+	v-else: excute when condition of v-if is false
+
+	template: group multi elements that you want to show or hide
+
+	v-show: only hide element, don't remove it on the DOM
+-->
+
+<!-- RENDER LIST 
+	v-for: loop the list and render each item
+	ex: v-for = "item in list"
+		v-for = "(item,idex) in list": get current index
+		v-for = "n in range": loop 1 to range
+		
+	*pass the unique key to element when loop or add element to the list
+	ex: <li v-for="(item,i) in list" :key="i"></li>
+-->
