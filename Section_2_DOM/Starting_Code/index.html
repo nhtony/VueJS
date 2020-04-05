@@ -1,0 +1,85 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="index.css">
+
+<div id="app">
+	<h4>Interpolation</h4>
+	<p v-once>{{ title }} <a v-bind:href=link>Vue JS</a></p>
+	<p>{{sayHello()}}</p>
+	<hr>
+	<h4>Derective</h4>
+	<h5>Ouput raw html</h5>
+	<p v-html="finishedLink"></p>
+	<h5>Event Listener</h5>
+	<button v-on:click="increase(2,$event)">Increase 2</button>
+	<span>Number: {{count}}</span> <span>{{count > 10 ? 'Greater than 10' : 'Smaller than 10'}}</span>
+	<button v-on:click="count --">Decrease</button>
+	<p v-on:mousemove="coordinate">Coordinate : {{x}} / {{y}}
+		- <span v-on:mousemove.stop>DEAD SPOT</span>
+	</p>
+	<input type="text" v-on:keyup.enter.space="alertMe">
+	<hr>
+	<h4>Two way binding</h4>
+	<input type="text" v-model="name">
+	<p>{{name}}</p>
+	<hr>
+	<h4>Computed Propoties</h4>
+	<button v-on:click="count++">Increase</button>
+	<button v-on:click="count--">Decrease</button>
+	<button v-on:click="count2++">Increase Second</button>
+	<p>Counter: {{ count }} | {{count2}}</p>
+	<p>Result: {{ result() }} | {{output}}</p>
+	<hr>
+	<h4>CSS classes</h4>
+	<label>Color</label>
+	<input type="text" v-model="color">
+	<label>Width</label>
+	<input type="text" v-model="width">
+	<div class="container">
+		<div class="demo" @click="attached = !attached" :class="divClass"></div>
+		<div class="demo" @click="attached = !attached" :class="[color, {yellow : attached}]"></div>
+		<div class="demo" @click="attached = !attached" :class="{yellow : attached}"></div>
+		<div class="demo" @click="attached = !attached" :style="{backgroundColor: color}"></div>
+		<div :style="myStyle"></div>
+		<div :style="[myStyle, {heigth : width + 'px'}]"></div>
+	</div>
+</div>
+
+
+<script src="./app.js"></script>
+
+
+<!-- Interpolation -->
+<!-- {{property}}: binding property data to html content -->
+
+<!-- Derective 
+	v-once: disable re-render when property change 
+	v-html: output raw html 
+* Binding Data
+	v-bind: bind something to my data 
+		ex: v-bind:href = "property" : binding link url
+			v-bind:src = "property" : binding src url
+			v-bind:value = "property" : binding the value of input tag
+		shortcut ':' -> :href, :src
+* Listen Event
+	v-on: listen event of element 
+		ex: v-on:click = "function" : execute the fuction when click event
+			v-on:mousemove = "function" : execute the fuction when mousemove event
+			v-on:mousemove.stop : stop the event
+			v-on:keyup = "function": execute the fuction when keyup
+			v-on:keyup.enter.space = "function": execute the fuction when hit enter or space
+		shortcut '@' -> @click, @keyup
+	v-model: two way binding
+
+
+* el
+   - connect to DOM	
+* data
+   - store data to be used
+* methods : methods of this Vue instance
+   - execute everytime when property changes
+* computed : dependent property
+   - execute when dependent property changes
+   - always run synchronously
+* wacth : ansynchronously task 
+   - execute code upon data changes
+-->
