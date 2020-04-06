@@ -13,12 +13,12 @@
 
 <script>
     export default {
-       props:['value'],
-       methods: {
-           switched(isOn){
-               this.$emit('input', isOn);
-           }
-       }
+        props: ['value'],
+        methods: {
+            switched(isOn) {
+                this.$emit('input', isOn);
+            }
+        }
     }
 </script>
 
